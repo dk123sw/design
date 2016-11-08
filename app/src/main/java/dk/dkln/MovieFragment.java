@@ -4,9 +4,11 @@ import android.os.Bundle;
 
 /**
  * Created by dk on 2016/11/8.
+ * 电影fragment
  */
 
 public class MovieFragment extends BaseFragment {
+
 
 
     public static MovieFragment newInstance() {

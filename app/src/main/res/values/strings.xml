@@ -4,4 +4,6 @@
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
+    <string name="wrong">布局加载失败</string>
+
 </resources>

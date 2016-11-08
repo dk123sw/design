@@ -1,11 +1,11 @@
 package dk.dkln;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.util.Log;
 
 /**
  * Created by dk on 2016/11/8.
@@ -13,10 +13,20 @@ import android.view.ViewGroup;
 
 public class BaseFragment extends Fragment {
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-      View view = inflater.inflate(R.layout.fragment_movie_do ,container , false);
-        return view;
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.e("Base" , getClass().getSimpleName());
     }
+
+    @Override
+    public Context getContext() {
+        return getActivity();
+    }
+
+    protected void startThActivityByIntent(Intent pIntent){
+        startActivity(pIntent);
+        getActivity().overridePendingTransition(R.anim.trans_next_in, R.anim.trans_next_out);
+    }
+
 }

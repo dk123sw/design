@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    继承下拉刷新布局SwipeRefreshLayout
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_meizhi"
