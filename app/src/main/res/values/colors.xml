@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#AF0000</color>
+    <color name="colorPrimaryDark">#AF0000</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="Theme">#FB5B81</color>
 
+//MultiSwipeRefreshLayout使用
     <color name="refresh_progress_1">#e91e63</color>
     <color name="refresh_progress_2">#00b0ff</color>
     <color name="refresh_progress_3">#432e2a</color>
+
+//fragment_movie使用
+    <color name="text_gray_4">#444444</color>
+    <color name="white">#ffffff</color>
+    <color name="red_base">#FB5B81</color>
+    <color name="text_gray_6">#666666</color>
 </resources>

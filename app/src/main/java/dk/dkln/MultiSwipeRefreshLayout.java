@@ -61,4 +61,9 @@ public class MultiSwipeRefreshLayout extends SwipeRefreshLayout {
         }
         return super.canChildScrollUp();
     }
+
+    @Override
+    public void setOnRefreshListener(OnRefreshListener listener) {
+        super.setOnRefreshListener(listener);
+    }
 }

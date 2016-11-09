@@ -38,6 +38,7 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <RadioButton
                     android:maxLines="1"
                     android:background="@null"
@@ -47,6 +48,7 @@
                     android:drawableTop="@drawable/tab_home_selector"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:maxLines="1"
                     android:background="@null"
@@ -55,14 +57,15 @@
                     android:id="@+id/rb_music"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
                 <RadioButton
                     android:maxLines="1"
                     android:background="@null"
                     android:button="@null"
                     android:id="@+id/rb_game"
                     android:drawableTop="@drawable/tab_message_selector"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
             </RadioGroup>
             </android.support.v7.widget.Toolbar>
