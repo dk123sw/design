@@ -1,4 +1,4 @@
-package dk.dkln.viewinterface;
+package dk.dkln.mvp;
 
 /**
  * Created by dk on 2016/11/9.

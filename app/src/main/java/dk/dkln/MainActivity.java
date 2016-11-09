@@ -2,7 +2,6 @@ package dk.dkln;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -17,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +28,7 @@ import butterknife.ButterKnife;
  * Created by dk on 2016/11/7.
  */
 
-public class MainActivity extends SwipeRefreshBaseActivity {
+public class MainActivity extends BaseActivity {
 
     @BindView(R.id.drawerLayout_home)
     DrawerLayout drawerLayout;
@@ -66,37 +64,37 @@ public class MainActivity extends SwipeRefreshBaseActivity {
 
 
 
-    @Override protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        initFragment();
-//        new Handler().postDelayed(() -> setRefresh(true), 358);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (null != listFragment)
-                    setRefresh(false);
-                    setRefresh(true);
-            }
-        } , 358);
-
-    }
-
-    @Override
-    public void requestDataRefresh() {
-        super.requestDataRefresh();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                setRefresh(true);
-            }
-        } , 1000);
-        if (null != listFragment){
-            setRefresh(false);
-        }
-        else {
-            Toast.makeText(this , R.string.wrong ,Toast.LENGTH_SHORT).show();
-        }
-    }
+//    @Override protected void onPostCreate(Bundle savedInstanceState) {
+//        super.onPostCreate(savedInstanceState);
+//        initFragment();
+////        new Handler().postDelayed(() -> setRefresh(true), 358);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (null != listFragment)
+//                    setRefresh(false);
+//                    setRefresh(true);
+//            }
+//        } , 358);
+//
+//    }
+//
+//    @Override
+//    public void requestDataRefresh() {
+//        super.requestDataRefresh();
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                setRefresh(true);
+//            }
+//        } , 1000);
+//        if (null != listFragment){
+//            setRefresh(false);
+//        }
+//        else {
+//            Toast.makeText(this , R.string.wrong ,Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
     /**
      * 初始化fragment
@@ -326,8 +324,28 @@ public class MainActivity extends SwipeRefreshBaseActivity {
         }
     }
 
-    @Override
-    public void setRefresh(boolean requestDataRefresh) {
-        super.setRefresh(requestDataRefresh);
-    }
+//    @Override
+//    public void setRefresh(boolean requestDataRefresh) {
+//        super.setRefresh(requestDataRefresh);
+//    }
+
+//    @Override
+//    public void showMessage(String msg) {
+//
+//    }
+//
+//    @Override
+//    public void showProgress() {
+//
+//    }
+//
+//    @Override
+//    public void hideProgress() {
+//
+//    }
+//
+//    @Override
+//    public void showData(Object result) {
+//
+//    }
 }

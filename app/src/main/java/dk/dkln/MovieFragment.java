@@ -17,8 +17,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dk.dkln.adapter.MyViewpagerAdapter;
-import dk.dkln.mvp.MovieLiveFragment;
-import dk.dkln.mvp.MovieTopFragment;
+import dk.dkln.mvp.view.MovieLiveFragment;
+import dk.dkln.mvp.view.MovieTopFragment;
 
 /**
  * Created by dk on 2016/11/8.
@@ -85,7 +85,7 @@ public class MovieFragment extends BaseFragment implements ViewPager.OnPageChang
         mViewPagerAdapter = new MyViewpagerAdapter(getChildFragmentManager(), mTitles, mFragments);
         viewpager.setAdapter(mViewPagerAdapter);
         // 设置ViewPager最大缓存的页面个数
-        viewpager.setOffscreenPageLimit(3);
+        viewpager.setOffscreenPageLimit(2);
         // 给ViewPager添加页面动态监听器（为了让Toolbar中的Title可以变化相应的Tab的标题）
         viewpager.addOnPageChangeListener(this);
 

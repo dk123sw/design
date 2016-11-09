@@ -1,4 +1,4 @@
-package dk.dkln.mvp;
+package dk.dkln.mvp.view;
 
 import android.os.Bundle;
 
