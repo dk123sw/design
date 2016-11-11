@@ -64,38 +64,6 @@ public class MainActivity extends BaseActivity {
 
 
 
-//    @Override protected void onPostCreate(Bundle savedInstanceState) {
-//        super.onPostCreate(savedInstanceState);
-//        initFragment();
-////        new Handler().postDelayed(() -> setRefresh(true), 358);
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                if (null != listFragment)
-//                    setRefresh(false);
-//                    setRefresh(true);
-//            }
-//        } , 358);
-//
-//    }
-//
-//    @Override
-//    public void requestDataRefresh() {
-//        super.requestDataRefresh();
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                setRefresh(true);
-//            }
-//        } , 1000);
-//        if (null != listFragment){
-//            setRefresh(false);
-//        }
-//        else {
-//            Toast.makeText(this , R.string.wrong ,Toast.LENGTH_SHORT).show();
-//        }
-//    }
-
     /**
      * 初始化fragment
      */

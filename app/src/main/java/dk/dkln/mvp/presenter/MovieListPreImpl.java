@@ -1,7 +1,7 @@
 package dk.dkln.mvp.presenter;
 
 
-import dk.dkln.bean.BaseResponse;
+import dk.dkln.bean.movie.BaseResponse;
 import dk.dkln.mvp.ApiCompleteListener;
 import dk.dkln.mvp.BaseView;
 import dk.dkln.mvp.LayoutView;

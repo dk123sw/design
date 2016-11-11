@@ -1,4 +1,4 @@
-package dk.dkln.bean;
+package dk.dkln.bean.movie;
 
 import java.util.ArrayList;
 

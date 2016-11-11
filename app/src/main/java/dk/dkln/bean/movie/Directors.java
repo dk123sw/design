@@ -1,4 +1,4 @@
-package dk.dkln.bean;
+package dk.dkln.bean.movie;
 
 /**
  * Created by dk on 2016/10/29.

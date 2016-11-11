@@ -1,4 +1,4 @@
-package dk.dkln.mvp;
+package dk.dkln.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatRatingBar;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import dk.dkln.R;
-import dk.dkln.bean.MovieListResponse;
+import dk.dkln.bean.movie.MovieListResponse;
 import me.drakeet.multitype.ItemViewProvider;
 
 /**

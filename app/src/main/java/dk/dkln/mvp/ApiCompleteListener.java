@@ -1,7 +1,7 @@
 package dk.dkln.mvp;
 
 
-import dk.dkln.bean.BaseResponse;
+import dk.dkln.bean.movie.BaseResponse;
 
 /**
  * 网络请求回调接口

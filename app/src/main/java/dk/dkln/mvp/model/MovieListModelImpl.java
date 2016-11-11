@@ -4,10 +4,10 @@ import com.google.gson.Gson;
 
 import java.net.UnknownHostException;
 
-import dk.dkln.bean.BaseResponse;
-import dk.dkln.bean.MovieInfoResponse;
+import dk.dkln.bean.movie.BaseResponse;
+import dk.dkln.bean.movie.MovieInfoResponse;
 import dk.dkln.mvp.ApiCompleteListener;
-import dk.dkln.mvp.http.IMovieListService;
+import dk.dkln.mvp.http.DouBanApi;
 import dk.dkln.mvp.http.ServiceFactory;
 import retrofit2.Response;
 import rx.Subscriber;
@@ -22,7 +22,7 @@ public class MovieListModelImpl implements IMovieListModel {
 
     @Override
     public void loadMovieList(int start, int count,final ApiCompleteListener listener) {
-        IMovieListService service = ServiceFactory.createService(IMovieListService.class);
+        DouBanApi service = ServiceFactory.createService(DouBanApi.class);
         service.getMovieList(start ,count)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
