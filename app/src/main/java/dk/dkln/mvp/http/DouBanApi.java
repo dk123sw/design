@@ -14,7 +14,7 @@ import rx.Observable;
 
 public interface DouBanApi {
 
-    @GET("/top250")
+    @GET("top250")
     Observable<Response<MovieInfoResponse>> getMovieList(@Query("start") int start,
                                                          @Query("count") int count);
 
@@ -24,4 +24,12 @@ public interface DouBanApi {
 
     @GET("subject/{resId}")
     Observable<Response<MoiveSeriesListRespnse>> getMovieSeriesList(@Path("resId") String resId);
+
+    /**
+     * 热映榜
+     * https://api.douban.com/v2/movie/in_theaters
+     */
+    @GET("in_theaters")
+    Observable<Response<MovieInfoResponse>> gethotMovieList(@Query("start") int start,
+                                                            @Query("count") int count);
 }

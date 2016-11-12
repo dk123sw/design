@@ -1,10 +1,12 @@
 package dk.dkln.bean.movie;
 
+import java.io.Serializable;
+
 /**
  * Created by dk on 2016/10/29.
  */
 
-public class Directors {
+public class Directors implements Serializable{
     private String alt;
     private ImageBean avatars;
 
