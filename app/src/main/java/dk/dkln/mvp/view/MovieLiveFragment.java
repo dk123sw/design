@@ -2,7 +2,6 @@ package dk.dkln.mvp.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -37,7 +36,10 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
     MultiSwipeRefreshLayout multiSwipeRefreshLayout;
 
     private boolean mIsFirstTimeTouchBottom = true;
-    private int mPage = 1;
+    private int mPage = 0;
+    private int  Page_Size = 33;
+    private static final int PRELOAD_SIZE = 6;
+
 
     MovieHotListPreImpl movieHotListPre;
     MultiTypeAdapter adapter;
@@ -65,8 +67,10 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
 
     @Override
     public void initView() {
-        recyclerview.setLayoutManager(new GridLayoutManager(getContext() , 3));
-
+        final StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2,
+                StaggeredGridLayoutManager.VERTICAL);
+        recyclerview.setLayoutManager(layoutManager);
+        recyclerview.addOnScrollListener(getOnBottomListener(layoutManager));
     }
 
     @Override
@@ -108,12 +112,12 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
             @Override public void onScrolled(RecyclerView rv, int dx, int dy) {
                 boolean isBottom =
                         layoutManager.findLastCompletelyVisibleItemPositions(new int[2])[1] >=
-                                adapter.getItemCount() - 6;
+                                adapter.getItemCount() - PRELOAD_SIZE;
                 if (!multiSwipeRefreshLayout.isRefreshing() && isBottom) {
                     if (!mIsFirstTimeTouchBottom) {
-                        multiSwipeRefreshLayout.setRefreshing(true);
+//                        multiSwipeRefreshLayout.setRefreshing(true);
                         mPage += 1;
-                        movieHotListPre.loadMoives(0 ,20);
+                        onRefresh();
                     } else {
                         mIsFirstTimeTouchBottom = false;
                     }
@@ -124,6 +128,7 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
 
     @Override
     public void onRefresh() {
-    movieHotListPre.loadMoives(0 ,20);
+    movieHotListPre.loadMoives(0 ,Page_Size + mPage);
+        Toast.makeText(getContext() ,"number" , Toast.LENGTH_SHORT ).show();
     }
 }
