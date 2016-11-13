@@ -1,9 +1,10 @@
 package dk.dkln.mvp.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,12 +38,13 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
 
     private boolean mIsFirstTimeTouchBottom = true;
     private int mPage = 0;
-    private int  Page_Size = 33;
+    private int  Page_Size = 10;
     private static final int PRELOAD_SIZE = 6;
 
-
+    private Context context;
     MovieHotListPreImpl movieHotListPre;
     MultiTypeAdapter adapter;
+
 
     public static MovieLiveFragment newInstance() {
 
@@ -67,8 +69,7 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
 
     @Override
     public void initView() {
-        final StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2,
-                StaggeredGridLayoutManager.VERTICAL);
+        GridLayoutManager layoutManager = new GridLayoutManager(context ,2);
         recyclerview.setLayoutManager(layoutManager);
         recyclerview.addOnScrollListener(getOnBottomListener(layoutManager));
     }
@@ -84,18 +85,21 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
     public void showMessage(String msg) {
         Toast.makeText(getContext(), msg, Toast.LENGTH_LONG).show();
         Log.e("showMessage", msg);
+        if (msg == "timeout") {
+            onRefresh();
+        }
     }
 
     @Override
     public void showProgress() {
         multiSwipeRefreshLayout.setRefreshing(true);
-        Toast.makeText(getContext() , "加载" ,Toast.LENGTH_SHORT ).show();
+//        Toast.makeText(getContext() , "加载" ,Toast.LENGTH_SHORT ).show();
     }
 
     @Override
     public void hideProgress() {
         multiSwipeRefreshLayout.setRefreshing(false);
-        Toast.makeText(getContext() , "完成" ,Toast.LENGTH_SHORT ).show();
+//        Toast.makeText(getContext() , "完成" ,Toast.LENGTH_SHORT ).show();
     }
 
     @Override
@@ -107,16 +111,16 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
         recyclerview.setAdapter(adapter);
     }
 
-    RecyclerView.OnScrollListener getOnBottomListener(final StaggeredGridLayoutManager layoutManager) {
+    RecyclerView.OnScrollListener getOnBottomListener(final GridLayoutManager layoutManager) {
         return new RecyclerView.OnScrollListener() {
             @Override public void onScrolled(RecyclerView rv, int dx, int dy) {
                 boolean isBottom =
-                        layoutManager.findLastCompletelyVisibleItemPositions(new int[2])[1] >=
+                        layoutManager.findLastVisibleItemPosition() >=
                                 adapter.getItemCount() - PRELOAD_SIZE;
                 if (!multiSwipeRefreshLayout.isRefreshing() && isBottom) {
                     if (!mIsFirstTimeTouchBottom) {
-//                        multiSwipeRefreshLayout.setRefreshing(true);
-                        mPage += 1;
+                        multiSwipeRefreshLayout.setRefreshing(true);
+                        mPage += 3;
                         onRefresh();
                     } else {
                         mIsFirstTimeTouchBottom = false;
@@ -126,9 +130,15 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
         };
     }
 
+//    加载数超出已有的数量导致app退出用if()做判断
     @Override
     public void onRefresh() {
-    movieHotListPre.loadMoives(0 ,Page_Size + mPage);
-        Toast.makeText(getContext() ,"number" , Toast.LENGTH_SHORT ).show();
+        if((Page_Size + mPage) <= 20) {
+            movieHotListPre.loadMoives(0, Page_Size + mPage);
+            Toast.makeText(getContext(), "成功加载", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(getContext(), "无数据加载", Toast.LENGTH_SHORT).show();
+            multiSwipeRefreshLayout.setRefreshing(false);
+        }
     }
 }
