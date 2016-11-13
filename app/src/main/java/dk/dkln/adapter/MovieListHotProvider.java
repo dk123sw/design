@@ -63,7 +63,7 @@ public class MovieListHotProvider extends ItemViewProvider<MovieListResponse ,
                 .load(movieListResponse.getImages().getLarge())
                 .into(holder.pictures);
         holder.movieName.setText(movieListResponse.getTitle());
-        holder.rating.setText(movieListResponse.getRating().getAverage());
+        holder.rating.setText("评分: " + movieListResponse.getRating().getAverage());
 
     }
 

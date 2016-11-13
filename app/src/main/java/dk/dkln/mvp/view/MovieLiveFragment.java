@@ -39,9 +39,9 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
     private boolean mIsFirstTimeTouchBottom = true;
     private int mPage = 0;
     private int  Page_Size = 10;
-    private static final int PRELOAD_SIZE = 6;
+//    private static final int PRELOAD_SIZE = 6;
 
-    private Context context;
+    private Context context; 
     MovieHotListPreImpl movieHotListPre;
     MultiTypeAdapter adapter;
 
@@ -78,16 +78,15 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
     public void initEvent() {
         multiSwipeRefreshLayout.setOnRefreshListener(this);
         movieHotListPre = new MovieHotListPreImpl(this);
-        onRefresh();
+//        onRefresh();
+        movieHotListPre.loadMoives(0, Page_Size);
     }
 
     @Override
     public void showMessage(String msg) {
         Toast.makeText(getContext(), msg, Toast.LENGTH_LONG).show();
         Log.e("showMessage", msg);
-        if (msg == "timeout") {
-            onRefresh();
-        }
+        multiSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -108,6 +107,7 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
 //            adapter.applyGlobalMultiTypePool();
         adapter = new MultiTypeAdapter(response.getSubjects());
         adapter.register(MovieListResponse.class, new MovieListHotProvider());
+        adapter.getItemCount();
         recyclerview.setAdapter(adapter);
     }
 
@@ -116,13 +116,22 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
             @Override public void onScrolled(RecyclerView rv, int dx, int dy) {
                 boolean isBottom =
                         layoutManager.findLastVisibleItemPosition() >=
-                                adapter.getItemCount() - PRELOAD_SIZE;
-                if (!multiSwipeRefreshLayout.isRefreshing() && isBottom) {
+                                adapter.getItemCount() - 1 ;
+                if (!multiSwipeRefreshLayout.isRefreshing() && isBottom ) {
                     if (!mIsFirstTimeTouchBottom) {
                         multiSwipeRefreshLayout.setRefreshing(true);
-                        mPage += 3;
-                        onRefresh();
-                    } else {
+                        mPage += 2;
+                        if((Page_Size) <= 20) {
+                            movieHotListPre.loadMoives(0 , Page_Size + mPage);
+                            Page_Size =( Page_Size + mPage );
+                            Toast.makeText(getContext(), "成功加载", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(getContext(), "无数据加载", Toast.LENGTH_SHORT).show();
+                            multiSwipeRefreshLayout.setRefreshing(false);
+                        }
+                        mIsFirstTimeTouchBottom = true;
+                    }
+                    else {
                         mIsFirstTimeTouchBottom = false;
                     }
                 }
@@ -133,12 +142,13 @@ public class MovieLiveFragment extends BaseFragment implements LayoutView ,
 //    加载数超出已有的数量导致app退出用if()做判断
     @Override
     public void onRefresh() {
-        if((Page_Size + mPage) <= 20) {
-            movieHotListPre.loadMoives(0, Page_Size + mPage);
-            Toast.makeText(getContext(), "成功加载", Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(getContext(), "无数据加载", Toast.LENGTH_SHORT).show();
+//        if((Page_Size) <= 20) {
+//            movieHotListPre.loadMoives(0 , Page_Size + mPage);
+//            Page_Size =( Page_Size + mPage );
+//            Toast.makeText(getContext(), "成功加载", Toast.LENGTH_SHORT).show();
+//        }else {
+//            Toast.makeText(getContext(), "无数据加载", Toast.LENGTH_SHORT).show();
             multiSwipeRefreshLayout.setRefreshing(false);
-        }
+//        }
     }
 }
