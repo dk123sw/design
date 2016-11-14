@@ -1,4 +1,4 @@
-package dk.dkln.mvp.view;
+package dk.dkln.mvp.view.movie;
 
 import dk.dkln.BaseActivity;
 import dk.dkln.mvp.LayoutView;

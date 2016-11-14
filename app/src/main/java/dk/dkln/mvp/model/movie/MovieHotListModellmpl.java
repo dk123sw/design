@@ -1,6 +1,4 @@
-package dk.dkln.mvp.model;
-
-import com.google.gson.Gson;
+package dk.dkln.mvp.model.movie;
 
 import java.net.UnknownHostException;
 
@@ -15,15 +13,14 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by dk on 2016/10/29.
+ * Created by dk on 2016/11/12.
  */
 
-public class MovieListModelImpl implements IMovieListModel {
-
+public class MovieHotListModellmpl implements IMovieListModel {
     @Override
-    public void loadMovieList(int start, int count,final ApiCompleteListener listener) {
-        DouBanApi service = ServiceFactory.createService(DouBanApi.class);
-        service.getMovieList(start ,count)
+    public void loadMovieList(int start, int count, final ApiCompleteListener listener) {
+        DouBanApi douBanApi = ServiceFactory.createService(DouBanApi.class);
+        douBanApi.gethotMovieList(start ,count)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<Response<MovieInfoResponse>>() {
@@ -36,19 +33,19 @@ public class MovieListModelImpl implements IMovieListModel {
                     public void onError(Throwable e) {
                         if (e instanceof UnknownHostException) {
                             listener.onFailed(null);
-                            return;
+                            return ;
+                        }else {
+                            listener.onFailed(new BaseResponse(404 , e.getMessage()));
                         }
-                        listener.onFailed(new BaseResponse(404, e.getMessage()));
                     }
 
                     @Override
                     public void onNext(Response<MovieInfoResponse> movieInfoResponseResponse) {
-                        if (movieInfoResponseResponse.isSuccessful()) {
-                            String str = new Gson().toJson(movieInfoResponseResponse.body());
+                        if (movieInfoResponseResponse.isSuccessful()){
                             listener.onComplected(movieInfoResponseResponse.body());
-                        } else {
-                            listener.onFailed(new BaseResponse(movieInfoResponseResponse.code(),
-                                    movieInfoResponseResponse.message()));
+                        }else {
+                            listener.onFailed(new BaseResponse(movieInfoResponseResponse.code()
+                            ,movieInfoResponseResponse.message()));
                         }
                     }
                 });

@@ -1,4 +1,4 @@
-package dk.dkln.mvp.model;
+package dk.dkln.mvp.model.movie;
 
 import dk.dkln.mvp.ApiCompleteListener;
 

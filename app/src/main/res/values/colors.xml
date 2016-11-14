@@ -16,4 +16,7 @@
     <color name="white">#ffffff</color>
     <color name="red_base">#FB5B81</color>
     <color name="text_gray_6">#666666</color>
+
+//fragmnet_music使用
+    <color name="bg_light_gray">#F2F2F2</color>
 </resources>

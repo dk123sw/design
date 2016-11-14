@@ -1,4 +1,4 @@
-package dk.dkln.mvp.view;
+package dk.dkln.mvp.view.movie;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import dk.dkln.adapter.MovieListHotProvider;
 import dk.dkln.bean.movie.MovieInfoResponse;
 import dk.dkln.bean.movie.MovieListResponse;
 import dk.dkln.mvp.LayoutView;
-import dk.dkln.mvp.presenter.MovieHotListPreImpl;
+import dk.dkln.mvp.presenter.movie.MovieHotListPreImpl;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 /**

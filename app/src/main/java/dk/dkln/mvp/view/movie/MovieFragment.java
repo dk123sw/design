@@ -1,4 +1,4 @@
-package dk.dkln;
+package dk.dkln.mvp.view.movie;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,9 +16,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dk.dkln.BaseFragment;
+import dk.dkln.R;
 import dk.dkln.adapter.MyViewpagerAdapter;
-import dk.dkln.mvp.view.MovieLiveFragment;
-import dk.dkln.mvp.view.MovieTopFragment;
 
 /**
  * Created by dk on 2016/11/8.

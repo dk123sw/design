@@ -1,4 +1,4 @@
-package dk.dkln;
+package dk.dkln.mvp.view.book;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,20 +12,19 @@ import android.view.ViewGroup;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dk.dkln.adapter.MusicViewpagerAdapter;
-import dk.dkln.utils.MusicApiUtils;
+import dk.dkln.BaseFragment;
+import dk.dkln.R;
+import dk.dkln.adapter.BookViewpagerAdapter;
+import dk.dkln.utils.BookApiUtils;
 
 /**
- * Created by dk on 2016/11/8.
- * 图书框架
+ * Created by dk on 2016/11/14.
  */
 
-public class MusicFragment extends BaseFragment implements ViewPager.OnPageChangeListener{
-
+public class BookFragment extends BaseFragment implements ViewPager.OnPageChangeListener{
 
     @BindView(R.id.tablayout)
     TabLayout tablayout;
-
     @BindView(R.id.appbarlayout)
     AppBarLayout appbarlayout;
     @BindView(R.id.viewpager)
@@ -34,15 +33,17 @@ public class MusicFragment extends BaseFragment implements ViewPager.OnPageChang
     CoordinatorLayout coordinatorlayout;
     // TabLayout中的tab标题
     private String[] mTitles;
-    private MusicViewpagerAdapter mViewPagerAdapter;
+    private BookViewpagerAdapter mViewPagerAdapter;
 
-    public static MusicFragment newInstance() {
+    public static BookFragment newInstance() {
 
         Bundle args = new Bundle();
-        MusicFragment fragment = new MusicFragment();
+
+        BookFragment fragment = new BookFragment();
         fragment.setArguments(args);
         return fragment;
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -61,10 +62,10 @@ public class MusicFragment extends BaseFragment implements ViewPager.OnPageChang
 
     private void initViews(){
 
-        mTitles = MusicApiUtils.Music_Titles;
+        mTitles = BookApiUtils.Book_Titles;
 
         // 初始化ViewPager的适配器，并设置给它
-        mViewPagerAdapter = new MusicViewpagerAdapter(getChildFragmentManager(), mTitles );
+        mViewPagerAdapter = new BookViewpagerAdapter(getChildFragmentManager(), mTitles );
         viewpager.setAdapter(mViewPagerAdapter);
         // 设置ViewPager最大缓存的页面个数
         viewpager.setOffscreenPageLimit(4);
@@ -83,9 +84,6 @@ public class MusicFragment extends BaseFragment implements ViewPager.OnPageChang
 
 
     }
-
-
-
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

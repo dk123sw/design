@@ -1,4 +1,4 @@
-package dk.dkln.mvp.view;
+package dk.dkln.mvp.view.movie;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,7 +19,7 @@ import dk.dkln.bean.movie.MovieInfoResponse;
 import dk.dkln.bean.movie.MovieListResponse;
 import dk.dkln.mvp.LayoutView;
 import dk.dkln.adapter.MovieListProvider;
-import dk.dkln.mvp.presenter.MovieListPreImpl;
+import dk.dkln.mvp.presenter.movie.MovieListPreImpl;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 /**
@@ -33,7 +33,7 @@ public class MovieTopFragment extends BaseFragment implements LayoutView,
     @BindView(R.id.recyclerview)
     RecyclerView recyclerview;
     @BindView(R.id.swipe_refresh_layout)
-    MultiSwipeRefreshLayout swiperefresh;
+    MultiSwipeRefreshLayout multiSwipeRefreshLayout;
 
     MovieListPreImpl movieListPre;
     MultiTypeAdapter adapter;
@@ -66,7 +66,7 @@ public class MovieTopFragment extends BaseFragment implements LayoutView,
     }
 
     public void initEvent() {
-        swiperefresh.setOnRefreshListener(this);
+        multiSwipeRefreshLayout.setOnRefreshListener(this);
         movieListPre = new MovieListPreImpl(this);
         onRefresh();
     }
@@ -84,12 +84,12 @@ public class MovieTopFragment extends BaseFragment implements LayoutView,
 
     @Override
     public void showProgress() {
-        swiperefresh.setRefreshing(true);
+        multiSwipeRefreshLayout.setRefreshing(true);
     }
 
     @Override
     public void hideProgress() {
-        swiperefresh.setRefreshing(false);
+        multiSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override

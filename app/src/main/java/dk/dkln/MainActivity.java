@@ -22,6 +22,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dk.dkln.mvp.view.book.BookFragment;
+import dk.dkln.mvp.view.movie.MovieFragment;
 
 
 /**
@@ -48,7 +50,8 @@ public class MainActivity extends BaseActivity {
     private ActionBarDrawerToggle actionBarDrawerToggle;
     protected MovieFragment movieFragment;
     protected GameFragment gameFragment;
-    protected MusicFragment musicFragment;
+    protected BookFragment bookFragment;
+//    protected MusicFragment musicFragment;
     protected List<Fragment> listFragment;
     protected int currItem; 
 
@@ -69,12 +72,14 @@ public class MainActivity extends BaseActivity {
      */
     private void initFragment(){
         movieFragment = MovieFragment.newInstance();
+        bookFragment = BookFragment.newInstance();
         gameFragment = GameFragment.newInstance();
-        musicFragment = MusicFragment.newInstance();
+//        musicFragment = MusicFragment.newInstance();
         listFragment = new ArrayList<>();
         listFragment.add(movieFragment);
+        listFragment.add(bookFragment);
         listFragment.add(gameFragment);
-        listFragment.add(musicFragment);
+//        listFragment.add(musicFragment);
     }
 
     private void initViewpager(){

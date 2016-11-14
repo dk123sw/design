@@ -1,11 +1,11 @@
-package dk.dkln.mvp.presenter;
+package dk.dkln.mvp.presenter.movie;
 
 import dk.dkln.bean.movie.BaseResponse;
 import dk.dkln.mvp.ApiCompleteListener;
 import dk.dkln.mvp.BaseView;
 import dk.dkln.mvp.LayoutView;
-import dk.dkln.mvp.model.IMovieListModel;
-import dk.dkln.mvp.model.MovieHotListModellmpl;
+import dk.dkln.mvp.model.movie.IMovieListModel;
+import dk.dkln.mvp.model.movie.MovieHotListModellmpl;
 
 /**
  * Created by dk on 2016/11/12.

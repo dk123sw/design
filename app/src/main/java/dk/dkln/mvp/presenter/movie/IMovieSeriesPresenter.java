@@ -1,4 +1,4 @@
-package dk.dkln.mvp.presenter;
+package dk.dkln.mvp.presenter.movie;
 
 /**
  * Created by dk on 2016/11/11.
