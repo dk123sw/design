@@ -25,7 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MovieDetailsActivity"></activity>
+        <activity android:name=".mvp.view.movie.MovieDetailsActivity" />
+        <activity android:name=".WebActivity" />
+        <activity android:name=".mvp.view.book.BookDetailsActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package dk.dkln.adapter;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +15,7 @@ import com.bumptech.glide.Glide;
 
 import dk.dkln.R;
 import dk.dkln.bean.movie.MovieListResponse;
+import dk.dkln.mvp.view.movie.MovieDetailsActivity;
 import me.drakeet.multitype.ItemViewProvider;
 
 /**
@@ -39,18 +42,26 @@ public class MovieListProvider extends
         holder.tv_hots_num.setText(movieList.getRating().getAverage());
         holder.tv_book_info.setText(movieList.getOriginal_title());
         holder.tv_book_description.setText("\u3000" + movieList.getYear());
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                String url = (String)URL.URL_MOVIE + movieList.getId() + "/";
-////                Bundle bundle = new Bundle();
-////                bundle.putSerializable(MovieListResponse.serialVersionName ,movieList );
 //                Intent intent = WebActivity.newIntent(holder.itemView.getContext()
 //                 , url , movieList.getTitle());
-////                intent.putExtras(bundle);
-//                holder.itemView.getContext().startActivity(intent);
-//            }
-//        });
+                String[] gener;
+                gener = movieList.getGenres();
+                Bundle bundle = new Bundle();
+                bundle.putString("titles" ,movieList.getTitle());
+                bundle.putString("year" , movieList.getYear());
+                bundle.putStringArray("gener" , gener);
+                bundle.putString("alt" , movieList.getAlt());
+                bundle.putString("subtype" , movieList.getSubtype());
+                bundle.putSerializable("pictures" ,movieList.getImages().getLarge());
+                Intent intent = new Intent(holder.itemView.getContext() , MovieDetailsActivity.class);
+                intent.putExtras(bundle);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     public static class MovieListHolder extends RecyclerView.ViewHolder {

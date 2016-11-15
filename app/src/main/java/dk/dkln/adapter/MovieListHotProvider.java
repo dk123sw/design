@@ -1,7 +1,9 @@
 package dk.dkln.adapter;
 
 
+import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +18,7 @@ import com.bumptech.glide.Glide;
 
 import dk.dkln.R;
 import dk.dkln.bean.movie.MovieListResponse;
+import dk.dkln.mvp.view.movie.MovieDetailsActivity;
 import me.drakeet.multitype.ItemViewProvider;
 
 /**
@@ -37,7 +40,7 @@ public class MovieListHotProvider extends ItemViewProvider<MovieListResponse ,
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull MovieListHotHolder holder, @NonNull MovieListResponse movieListResponse) {
+    protected void onBindViewHolder(@NonNull final MovieListHotHolder holder, @NonNull final MovieListResponse movieListResponse) {
 //        ViewGroup.LayoutParams params=holder.pictures.getLayoutParams();
 //        int width= ScreenUtils.getScreenWidthDp();
 //        int ivWidth=(width-ScreenUtils.dipToPx(,80))/3;
@@ -64,6 +67,27 @@ public class MovieListHotProvider extends ItemViewProvider<MovieListResponse ,
                 .into(holder.pictures);
         holder.movieName.setText(movieListResponse.getTitle());
         holder.rating.setText("评分: " + movieListResponse.getRating().getAverage());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                String url = (String)URL.URL_MOVIE + movieList.getId() + "/";
+//                Intent intent = WebActivity.newIntent(holder.itemView.getContext()
+//                 , url , movieList.getTitle());
+                String[] gener;
+                gener = movieListResponse.getGenres();
+                Bundle bundle = new Bundle();
+                bundle.putString("titles" ,movieListResponse.getTitle());
+                bundle.putString("year" , movieListResponse.getYear());
+                bundle.putStringArray("gener" , gener);
+                bundle.putString("alt" , movieListResponse.getAlt());
+                bundle.putString("subtype" , movieListResponse.getSubtype());
+                bundle.putSerializable("pictures" ,movieListResponse.getImages().getLarge());
+                Intent intent = new Intent(holder.itemView.getContext() , MovieDetailsActivity.class);
+                intent.putExtras(bundle);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
 
     }
 

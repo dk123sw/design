@@ -1,14 +1,12 @@
 package dk.dkln.bean.movie;
 
-import java.io.Serializable;
-
 import me.drakeet.multitype.Item;
 
 /**
  * Created by dk on 2016/10/29.
  */
 
-public class MovieListResponse implements Serializable,Item {
+public class MovieListResponse implements Item {
 
     public static final long serialVersionUID = 7060254125600464481L;
     public static final String serialVersionName = "movieList";
@@ -38,15 +36,15 @@ public class MovieListResponse implements Serializable,Item {
     private String collect_count;
 //    private CastsBean[] casts;
 //    private Directors[] directors;
-//    private String[] genres;
+    private String[] genres;
 
-//    public String[] getGenres() {
-//        return genres;
-//    }
-//
-//    public void setGenres(String[] genres) {
-//        this.genres = genres;
-//    }
+    public String[] getGenres() {
+        return genres;
+    }
+
+    public void setGenres(String[] genres) {
+        this.genres = genres;
+    }
 
     public String getCollect_count() {
         return collect_count;

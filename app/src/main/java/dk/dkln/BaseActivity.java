@@ -16,9 +16,9 @@ import butterknife.BindView;
 
 public class BaseActivity extends AppCompatActivity {
 
-    @BindView(R.id.toolbar)
+    @Nullable @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.appbarLayout)
+    @Nullable @BindView(R.id.appbarLayout)
     AppBarLayout appBarLayout;
 
     @Override

@@ -1,5 +1,7 @@
 package dk.dkln.adapter;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +15,7 @@ import com.bumptech.glide.Glide;
 
 import dk.dkln.R;
 import dk.dkln.bean.book.BookListResponse;
+import dk.dkln.mvp.view.book.BookDetailsActivity;
 import me.drakeet.multitype.ItemViewProvider;
 
 /**
@@ -30,44 +33,33 @@ public class BookListsProvider
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull final BookListHolder holder, @NonNull final BookListResponse bookInfo) {
+    protected void onBindViewHolder(@NonNull final BookListHolder holder, @NonNull final BookListResponse bookList) {
         Glide.with(holder.itemView.getContext())
-                .load(bookInfo.getImages().getLarge())
+                .load(bookList.getImages().getLarge())
                 .into(holder.iv_book_img);
-        holder.tv_book_title.setText(bookInfo.getTitle());
-        holder.ratingBar_hots.setRating(Float.valueOf(bookInfo.getRating().getAverage()) / 2);
-        holder.tv_hots_num.setText(bookInfo.getRating().getAverage());
-        holder.tv_book_info.setText(bookInfo.getInfoString());
-        holder.tv_book_description.setText("\u3000" + bookInfo.getSummary());
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Bundle b = new Bundle();
-//                b.putSerializable(BookListResponse.serialVersionName, bookInfo);
-//                Bitmap bitmap;
-//                GlideBitmapDrawable imageDrawable = (GlideBitmapDrawable) holder.iv_book_img.getDrawable();
-//                if (imageDrawable != null) {
-//                    bitmap = imageDrawable.getBitmap();
-//                    b.putParcelable("book_img", bitmap);
-//                }
-//                Intent intent = new Intent(holder.itemView.getContext(), BookDetailsActivity.class);
-//                intent.putExtras(b);
-
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                    if (BaseActivity.activity == null) {
-//                        UIUtils.startActivity(intent);
-//                        return;
-//                    }
-////                    ActivityOptionsCompat options = ActivityOptionsCompat.
-////                            makeSceneTransitionAnimation(BaseActivity.activity, holder.iv_book_img, "book_img");
-////                    BaseActivity.activity.startActivity(intent, options.toBundle());
-//                } else {
-//                    UIUtils.startActivity(intent);
-                //}
-//                holder.itemView.getContext().startActivity(intent);
-//            }
-//        });
-
+        holder.tv_book_title.setText(bookList.getTitle());
+        holder.ratingBar_hots.setRating(Float.valueOf(bookList.getRating().getAverage()) / 2);
+        holder.tv_hots_num.setText(bookList.getRating().getAverage());
+        holder.tv_book_info.setText(bookList.getInfoString());
+        holder.tv_book_description.setText("\u3000" + bookList.getSummary());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                String url = (String)URL.URL_MOVIE + bookList.getId() + "/";
+//                Intent intent = WebActivity.newIntent(holder.itemView.getContext()
+//                 , url , bookList.getTitle());
+                Bundle bundle = new Bundle();
+                bundle.putString("titles" ,bookList.getTitle());
+                bundle.putString("year" , bookList.getPubdate());
+                bundle.putString("binding" , bookList.getBinding());
+                bundle.putString("alt" , bookList.getAlt());
+                bundle.putString("summary" , bookList.getSummary());
+                bundle.putSerializable("pictures" ,bookList.getImages().getLarge());
+                Intent intent = new Intent(holder.itemView.getContext() , BookDetailsActivity.class);
+                intent.putExtras(bundle);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     public static class BookListHolder extends RecyclerView.ViewHolder {
