@@ -1,10 +1,7 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->// calculator使用<dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-
-    <dimen name="sliding_menu_width">80dp</dimen>
-//  calculator使用
+    <dimen name="sliding_menu_width">80dp</dimen>// calculator使用
     <dimen name="displayTextSize">45sp</dimen>
     <dimen name="btnTextSize">35sp</dimen>
     <dimen name="btnMargin">2sp</dimen>

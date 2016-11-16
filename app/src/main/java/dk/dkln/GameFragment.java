@@ -46,9 +46,10 @@ public class GameFragment extends BaseFragment {
     @OnClick({R.id.zxing , R.id.calculator ,R.id.game})
     public void  OnClick(View view){
         switch (view.getId()){
-//            case R.id.zxing:
-//                intent = new Intent(getContext() , Zxing);
-//                startThActivityByIntent();
+            case R.id.zxing:
+                intent = new Intent(getContext() , ZxingActivity.class);
+                startThActivityByIntent(intent);
+                break;
             case  R.id.calculator:
                 intent = new Intent(getContext() , Calculator.class);
                 startThActivityByIntent(intent);

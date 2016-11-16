@@ -29,7 +29,8 @@
         <activity android:name=".WebActivity" />
         <activity android:name=".mvp.view.book.BookDetailsActivity" />
         <activity android:name=".game_2048.GameActivity" />
-        <activity android:name=".calculator.Calculator"></activity>
+        <activity android:name=".calculator.Calculator" />
+        <activity android:name=".ZxingActivity"></activity>
     </application>
 
 </manifest>

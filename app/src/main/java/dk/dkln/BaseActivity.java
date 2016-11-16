@@ -32,7 +32,8 @@ public class BaseActivity extends AppCompatActivity {
         if (canBack()) {
             ActionBar actionBar = getSupportActionBar();
 //            回到主菜单的图标
-            if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
+            if (actionBar != null)
+                actionBar.setDisplayHomeAsUpEnabled(true);
         }
 //        if (Build.VERSION.SDK_INT >= 21) {
 //            appBarLayout.setElevation(10.6f);

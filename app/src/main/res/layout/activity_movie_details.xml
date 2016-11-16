@@ -103,12 +103,15 @@
                 android:textColor="@color/text_gray_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
-            <TextView
-                android:textSize="14sp"
-                android:id="@+id/summary"
+            <ScrollView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textSize="14sp"
+                    android:id="@+id/summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </ScrollView>
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
