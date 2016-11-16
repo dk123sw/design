@@ -13,19 +13,10 @@ public class WebActivity extends AppCompatActivity {
     private static final String EXTRA_URL = "extra_url";
     private static final String EXTRA_TITLE = "extra_title";
     public WebView mWebView;
-//    TextSwitcher mTextSwitcher;
-    private long delay = 1738L;
 
     private String mUrl, mTitle;
 
 
-    /**
-     * Using newIntent trick, return WebActivity Intent, to avoid `public static`
-     * constant
-     * variable everywhere
-     *
-     * @return Intent to start WebActivity
-     */
     public static Intent newIntent(Context context, String extraURL, String extraTitle) {
         Intent intent = new Intent(context, WebActivity.class);
         intent.putExtra(EXTRA_URL, extraURL);
@@ -45,24 +36,12 @@ public class WebActivity extends AppCompatActivity {
 
         WebSettings settings = mWebView.getSettings();
         settings.setJavaScriptEnabled(true);
+        settings.setSupportZoom(true);
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        settings.setLoadWithOverviewMode(true);
         mWebView.loadUrl(mUrl);
 
-//        mTextSwitcher.setFactory(() -> {
-//            final TextView textView = new TextView(this);
-//            textView.setSingleLine(true);
-//            textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-////            textView.postDelayed(() -> textView.setSelected(true), 1738);
-//            textView.postDelayed(new Runnable() {
-//                @Override
-//                public void run() {
-//                    textView.setSelected(true);
-//                }
-//            } ,delay );
-//            return textView;
-//        });
-//        mTextSwitcher.setInAnimation(this, android.R.anim.fade_in);
-//        mTextSwitcher.setOutAnimation(this, android.R.anim.fade_out);
-//        if (mTitle != null) setTitle(mTitle);
+
     }
 
 //

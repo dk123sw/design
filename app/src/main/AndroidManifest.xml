@@ -27,7 +27,9 @@
         </activity>
         <activity android:name=".mvp.view.movie.MovieDetailsActivity" />
         <activity android:name=".WebActivity" />
-        <activity android:name=".mvp.view.book.BookDetailsActivity"></activity>
+        <activity android:name=".mvp.view.book.BookDetailsActivity" />
+        <activity android:name=".game_2048.GameActivity" />
+        <activity android:name=".calculator.Calculator"></activity>
     </application>
 
 </manifest>

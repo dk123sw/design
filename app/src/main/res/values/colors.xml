@@ -19,4 +19,17 @@
 
 //fragmnet_music使用
     <color name="bg_light_gray">#F2F2F2</color>
+
+    <color name="gray">#666666</color>
+
+    <color name="black">#000000</color>
+    <color name="topbar_bg">#33cc99</color>
+    <color name="alpha_1">#1000</color>
+
+//    calculator使用
+    <color name="colorDisplayText">#9F000000</color>
+    <color name="colorAppBG">#FF4B5459</color>
+    <color name="colorDisplayDivider">#FF5C6265</color>
+    <color name="colorButtontext">#b9e776fe</color>
+    <color name="colorButtonBG">#23ffea00</color>
 </resources>
