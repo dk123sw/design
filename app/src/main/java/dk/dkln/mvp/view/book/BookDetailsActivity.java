@@ -14,9 +14,9 @@ import com.bumptech.glide.Glide;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import dk.dkln.BaseActivity;
+import dk.dkln.base.BaseActivity;
 import dk.dkln.R;
-import dk.dkln.WebActivity;
+import dk.dkln.mvp.view.WebActivity;
 
 public class BookDetailsActivity extends BaseActivity {
 
@@ -40,12 +40,20 @@ public class BookDetailsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_book_details);
+//        setContentView(R.layout.activity_book_details);
         ButterKnife.bind(this);
         initView();
     }
 
+    @Override
+    public boolean canBack() {
+        return true;
+    }
 
+    @Override
+    protected int provideContentViewId() {
+        return R.layout.activity_book_details;
+    }
 
     private void initView() {
         if (getIntent().getSerializableExtra("pictures")!=null) {

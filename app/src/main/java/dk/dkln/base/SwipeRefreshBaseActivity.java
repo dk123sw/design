@@ -1,4 +1,4 @@
-package dk.dkln;
+package dk.dkln.base;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -6,7 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dk.dkln.viewinterface.SwipeRefreshLayer;
+import dk.dkln.R;
 
 /**
  * 下拉刷新基本布局

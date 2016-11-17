@@ -1,6 +1,4 @@
-package dk.dkln.viewinterface;
-
-import dk.dkln.MultiSwipeRefreshLayout;
+package dk.dkln.base;
 
 /**
  * Created by dk on 2016/11/7.

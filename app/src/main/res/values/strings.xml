@@ -5,5 +5,11 @@
     <string name="drawer_close">Close</string>
 
     <string name="wrong">布局加载失败</string>
+    <string name="github">我的Github</string>
+    <string name="about_me">关于我</string>
+    <string name="zxing">二维码</string>
+    <string name="calculator">计算器</string>
+    <string name="game">2048小游戏</string>
+    <string name="exit">退出</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package dk.dkln;
+package dk.dkln.mvp.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
+import dk.dkln.R;
 
 public class WebActivity extends AppCompatActivity {
 

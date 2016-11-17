@@ -1,4 +1,4 @@
-package dk.dkln.calculator;
+package dk.dkln.mvp.view.game;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

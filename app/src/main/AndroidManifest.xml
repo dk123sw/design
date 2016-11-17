@@ -26,11 +26,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.view.movie.MovieDetailsActivity" />
-        <activity android:name=".WebActivity" />
+        <activity android:name=".mvp.view.WebActivity" />
         <activity android:name=".mvp.view.book.BookDetailsActivity" />
-        <activity android:name=".game_2048.GameActivity" />
-        <activity android:name=".calculator.Calculator" />
-        <activity android:name=".ZxingActivity"></activity>
+        <activity android:name=".mvp.view.game.GameActivity" />
+        <activity android:name=".mvp.view.game.Calculator" />
+        <activity android:name=".mvp.view.game.ZxingActivity" />
+        <activity android:name=".AboutMeActivity"></activity>
     </application>
 
 </manifest>

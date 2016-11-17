@@ -1,4 +1,4 @@
-package dk.dkln;
+package dk.dkln.mvp.view.game;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import dk.dkln.calculator.Calculator;
-import dk.dkln.game_2048.GameActivity;
+import dk.dkln.base.BaseFragment;
+import dk.dkln.R;
 
 /**
  * Created by dk on 2016/11/8.

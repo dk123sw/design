@@ -16,7 +16,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dk.dkln.BaseFragment;
+import dk.dkln.base.BaseFragment;
 import dk.dkln.R;
 import dk.dkln.adapter.MyViewpagerAdapter;
 

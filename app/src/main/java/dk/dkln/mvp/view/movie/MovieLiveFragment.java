@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dk.dkln.BaseFragment;
-import dk.dkln.MultiSwipeRefreshLayout;
+import dk.dkln.base.BaseFragment;
+import dk.dkln.base.MultiSwipeRefreshLayout;
 import dk.dkln.R;
 import dk.dkln.adapter.MovieListHotProvider;
 import dk.dkln.bean.movie.MovieInfoResponse;

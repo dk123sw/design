@@ -1,4 +1,4 @@
-package dk.dkln;
+package dk.dkln.mvp.view.game;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,6 +14,8 @@ import com.xys.libzxing.zxing.encoding.EncodingUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import dk.dkln.base.BaseActivity;
+import dk.dkln.R;
 
 public class ZxingActivity extends BaseActivity {
 
@@ -30,8 +32,12 @@ public class ZxingActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zxing);
         ButterKnife.bind(this);
+    }
+
+    @Override
+    protected int provideContentViewId() {
+        return R.layout.activity_zxing;
     }
 
     @Override

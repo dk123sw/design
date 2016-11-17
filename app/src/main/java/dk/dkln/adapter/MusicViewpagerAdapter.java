@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import dk.dkln.MusicListFragment;
+import dk.dkln.no_use.MusicListFragment;
 
 /**
  * Created by dk on 2016/11/14.

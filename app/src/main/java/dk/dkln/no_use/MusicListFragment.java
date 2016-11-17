@@ -1,4 +1,4 @@
-package dk.dkln;
+package dk.dkln.no_use;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +14,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dk.dkln.R;
+import dk.dkln.base.BaseFragment;
+import dk.dkln.base.MultiSwipeRefreshLayout;
 import dk.dkln.mvp.LayoutView;
 import dk.dkln.utils.MusicApiUtils;
 

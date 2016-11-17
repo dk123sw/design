@@ -1,4 +1,4 @@
-package dk.dkln.game_2048;
+package dk.dkln.mvp.view.game;
 
 import android.app.Activity;
 import android.app.AlertDialog;

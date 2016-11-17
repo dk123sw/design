@@ -1,10 +1,12 @@
-package dk.dkln;
+package dk.dkln.base;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
+
+import dk.dkln.R;
 
 /**
  * Pick from Google io 2014

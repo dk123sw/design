@@ -3,14 +3,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <dk.dkln.game_2048.Game2048Layout
+    <dk.dkln.mvp.view.game.Game2048Layout
         android:id="@+id/id_game2048"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_centerInParent="true"
         android:background="#ffffff"
         android:padding="10dp" >
-    </dk.dkln.game_2048.Game2048Layout>
+    </dk.dkln.mvp.view.game.Game2048Layout>
 
     <LinearLayout
         android:layout_width="wrap_content"

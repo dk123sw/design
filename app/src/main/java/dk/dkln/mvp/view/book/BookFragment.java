@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dk.dkln.BaseFragment;
+import dk.dkln.base.BaseFragment;
 import dk.dkln.R;
 import dk.dkln.adapter.BookViewpagerAdapter;
 import dk.dkln.utils.BookApiUtils;

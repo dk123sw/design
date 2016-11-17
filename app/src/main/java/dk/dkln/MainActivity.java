@@ -1,6 +1,8 @@
 package dk.dkln;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,7 +24,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dk.dkln.base.BaseActivity;
+import dk.dkln.mvp.view.WebActivity;
 import dk.dkln.mvp.view.book.BookFragment;
+import dk.dkln.mvp.view.game.Calculator;
+import dk.dkln.mvp.view.game.GameActivity;
+import dk.dkln.mvp.view.game.GameFragment;
+import dk.dkln.mvp.view.game.ZxingActivity;
 import dk.dkln.mvp.view.movie.MovieFragment;
 
 
@@ -58,14 +66,17 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initFragment();
         initViewpager();
         initNavigaton();
     }
 
-
+    @Override
+    protected int provideContentViewId() {
+        return R.layout.activity_main;
+    }
 
     /**
      * 初始化fragment
@@ -213,48 +224,39 @@ public class MainActivity extends BaseActivity {
          public boolean onNavigationItemSelected(@NonNull MenuItem item) {
              switch (item.getItemId()) {
                  case R.id.item_home:
-                     // 主页
-
+                     // github
+                     String url = "https://github.com/dk123sw";
+                     Intent intent = WebActivity.newIntent(MainActivity.this
+                             , url ,"我的Github");
+                     startThActivityByIntent(intent);
                      return true;
 
                  case R.id.item_download:
-                     // 离线缓存
-
+                     // 关于我
+                     startThActivity(AboutMeActivity.class);
                      return true;
 
                  case R.id.item_favourite:
-                     // 我的收藏
-
+                     // zxing
+                     startThActivity(ZxingActivity.class);
                      return true;
 
                  case R.id.item_history:
-                     // 历史记录
-
+                     // calculator
+                     startThActivity(Calculator.class);
                      return true;
 
                  case R.id.item_group:
-                     // 关注的人
-
+                     // game
+                    startThActivity(GameActivity.class);
                      return true;
 
-                 case R.id.item_tracker:
-                     // 消费记录
-
-                     return true;
-
-                 case R.id.item_theme:
-                     // 主题选择
-
-                     return true;
-
-                 case R.id.item_app:
-                     // 应用推荐
-
-                     return true;
 
                  case R.id.item_settings:
-                     // 设置中心
-
+                     // exit
+                     if (Build.VERSION.SDK_INT >= 21){
+                         finishAndRemoveTask();
+                     }
                      return true;
              }
              return false;
@@ -297,7 +299,12 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-//    @Override
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    //    @Override
 //    public void setRefresh(boolean requestDataRefresh) {
 //        super.setRefresh(requestDataRefresh);
 //    }

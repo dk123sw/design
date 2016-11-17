@@ -1,4 +1,4 @@
-package dk.dkln;
+package dk.dkln.no_use;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,12 +12,13 @@ import android.view.ViewGroup;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dk.dkln.R;
 import dk.dkln.adapter.MusicViewpagerAdapter;
+import dk.dkln.base.BaseFragment;
 import dk.dkln.utils.MusicApiUtils;
 
 /**
  * Created by dk on 2016/11/8.
- * 图书框架
  */
 
 public class MusicFragment extends BaseFragment implements ViewPager.OnPageChangeListener{

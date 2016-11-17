@@ -14,9 +14,9 @@ import com.bumptech.glide.Glide;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import dk.dkln.BaseActivity;
+import dk.dkln.base.BaseActivity;
 import dk.dkln.R;
-import dk.dkln.WebActivity;
+import dk.dkln.mvp.view.WebActivity;
 /**
  *  TODO 有时间重做这布局~~
  */
@@ -45,14 +45,20 @@ public class MovieDetailsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_details);
         ButterKnife.bind(this);
         loadDate();
         initView();
-
     }
 
+    @Override
+    protected int provideContentViewId() {
+        return R.layout.activity_movie_details;
+    }
 
+    @Override
+    public boolean canBack() {
+        return true;
+    }
 
     private void loadDate() {
 //        listresponse = (MovieListResponse) getIntent().
