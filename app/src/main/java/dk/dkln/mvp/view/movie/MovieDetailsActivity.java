@@ -2,6 +2,7 @@ package dk.dkln.mvp.view.movie;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -31,9 +32,9 @@ public class MovieDetailsActivity extends BaseActivity {
     TextView summary;
     @BindView(R.id.year)
     TextView year;
-    @BindView(R.id.toolbar)
+    @Nullable @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.appbarlayout)
+    @Nullable @BindView(R.id.appbarlayout)
     AppBarLayout appbarlayout;
 
 //    public MovieListResponse listresponse;

@@ -9,10 +9,6 @@ repositories {
 }
 
 android {
-    signingConfigs {
-        config {
-        }
-    }
     compileSdkVersion 24
     buildToolsVersion "24"
     defaultConfig {
@@ -28,8 +24,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    productFlavors {
     }
 }
 
@@ -57,7 +51,10 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'me.drakeet.multitype:multitype:2.2.0-beta1'
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    //    compile 'junit:junit:4.12'
     compile files('libs/arity-2.1.2.jar')
+    //    compile project(':libzxing')
+    //    compile files('libs/zxing.jar')
     compile project(':libzxing')
 }
 
