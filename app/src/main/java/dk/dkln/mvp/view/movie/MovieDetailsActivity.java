@@ -78,6 +78,7 @@ public class MovieDetailsActivity extends BaseActivity {
         if (getIntent().getStringExtra("titles") != null) {
             titles.setText(getIntent().getStringExtra("titles"));
             toolbar.setTitle(getIntent().getStringExtra("titles"));
+            toolbar.setTitleTextColor(getResources().getColor(R.color.colorDisplayText));
         }
         if (getIntent().getStringExtra("subtype") != null)
             {

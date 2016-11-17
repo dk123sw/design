@@ -3,6 +3,9 @@ package dk.dkln.mvp.view.game;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,6 +29,11 @@ public class ZxingActivity extends BaseActivity {
     EditText produce_result;
     @BindView(R.id.pictures)
     ImageView picture;
+    @Nullable
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @Nullable @BindView(R.id.appbarlayout)
+    AppBarLayout appbarlayout;
 
     private String shuru;
 
@@ -33,6 +41,8 @@ public class ZxingActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
+        toolbar.setTitle("二维码");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.colorDisplayText));
     }
 
     @Override

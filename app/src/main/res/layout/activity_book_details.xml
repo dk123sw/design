@@ -5,18 +5,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-
     <include layout="@layout/layout_toolbar"/>
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
+<!--
         <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content">-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -33,7 +36,7 @@
                         android:id="@+id/pictures"
                         android:layout_centerInParent="true"
                         android:scaleType="centerCrop"
-                        android:layout_margin="50dp"
+                        android:layout_margin="40dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </RelativeLayout>
@@ -79,7 +82,7 @@
 
                 </LinearLayout>
             </LinearLayout>
-        </android.support.design.widget.CoordinatorLayout>
+        <!--</android.support.design.widget.CoordinatorLayout>-->
 
         <Button
             android:layout_marginTop="10dp"
@@ -101,15 +104,11 @@
                 android:textColor="@color/text_gray_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
                 <TextView
                     android:textSize="14sp"
                     android:id="@+id/summary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-            </ScrollView>
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
@@ -118,5 +117,5 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>

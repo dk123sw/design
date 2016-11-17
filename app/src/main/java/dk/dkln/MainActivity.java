@@ -55,18 +55,17 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.radioGroup)
     RadioGroup radioGroup;
 
+
     private ActionBarDrawerToggle actionBarDrawerToggle;
     protected MovieFragment movieFragment;
     protected GameFragment gameFragment;
     protected BookFragment bookFragment;
-//    protected MusicFragment musicFragment;
     protected List<Fragment> listFragment;
     protected int currItem; 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initFragment();
         initViewpager();
@@ -78,6 +77,7 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
+
     /**
      * 初始化fragment
      */
@@ -85,12 +85,10 @@ public class MainActivity extends BaseActivity {
         movieFragment = MovieFragment.newInstance();
         bookFragment = BookFragment.newInstance();
         gameFragment = GameFragment.newInstance();
-//        musicFragment = MusicFragment.newInstance();
         listFragment = new ArrayList<>();
         listFragment.add(movieFragment);
         listFragment.add(bookFragment);
         listFragment.add(gameFragment);
-//        listFragment.add(musicFragment);
     }
 
     private void initViewpager(){
@@ -192,9 +190,6 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-
-
-
     /**
      *将NavigationView和ToolBar结合
      */
@@ -229,29 +224,23 @@ public class MainActivity extends BaseActivity {
                      Intent intent = WebActivity.newIntent(MainActivity.this
                              , url ,"我的Github");
                      startThActivityByIntent(intent);
-                     return true;
-
+                     break;
                  case R.id.item_download:
                      // 关于我
                      startThActivity(AboutMeActivity.class);
-                     return true;
-
+                     break;
                  case R.id.item_favourite:
                      // zxing
                      startThActivity(ZxingActivity.class);
-                     return true;
-
+                     break;
                  case R.id.item_history:
                      // calculator
                      startThActivity(Calculator.class);
-                     return true;
-
+                     break;
                  case R.id.item_group:
                      // game
                     startThActivity(GameActivity.class);
-                     return true;
-
-
+                     break;
                  case R.id.item_settings:
                      // exit
                      if (Build.VERSION.SDK_INT >= 21){
@@ -299,33 +288,5 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 
-    //    @Override
-//    public void setRefresh(boolean requestDataRefresh) {
-//        super.setRefresh(requestDataRefresh);
-//    }
-
-//    @Override
-//    public void showMessage(String msg) {
-//
-//    }
-//
-//    @Override
-//    public void showProgress() {
-//
-//    }
-//
-//    @Override
-//    public void hideProgress() {
-//
-//    }
-//
-//    @Override
-//    public void showData(Object result) {
-//
-//    }
 }

@@ -44,10 +44,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         if (canBack()) {
             ActionBar actionBar = getSupportActionBar();
-            toolbar.setBackground(getResources().getDrawable(R.drawable.toolbar));
+//            toolbar.setBackground(getResources().getDrawable(R.drawable.toolbar));
 //            回到主菜单的图标
             if (actionBar != null) {
-                actionBar.setDisplayHomeAsUpEnabled(true);
+//                actionBar.setDisplayHomeAsUpEnabled(true);
                 toolbar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -55,6 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                     }
                 });
             }
+        }else {
             if (Build.VERSION.SDK_INT >= 21) {
                 toolbar.setAlpha(1.f);
                 View decorView = getWindow().getDecorView();
@@ -62,10 +63,11 @@ public abstract class BaseActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
                 decorView.setSystemUiVisibility(option);
-                getWindow().setNavigationBarColor(Color.TRANSPARENT);
+//                getWindow().setNavigationBarColor(Color.TRANSPARENT);
+
                 getWindow().setStatusBarColor(Color.TRANSPARENT);
+            }
         }
-    }
     }
 
     public void backThActivity() {

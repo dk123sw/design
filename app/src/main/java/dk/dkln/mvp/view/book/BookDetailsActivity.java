@@ -31,8 +31,7 @@ public class BookDetailsActivity extends BaseActivity {
     TextView summary;
     @BindView(R.id.year)
     TextView year;
-    @Nullable
-    @BindView(R.id.toolbar)
+    @Nullable @BindView(R.id.toolbar)
     Toolbar toolbar;
     @Nullable @BindView(R.id.appbarlayout)
     AppBarLayout appbarlayout;
@@ -67,6 +66,7 @@ public class BookDetailsActivity extends BaseActivity {
         if (getIntent().getStringExtra("titles") != null) {
             titles.setText(getIntent().getStringExtra("titles"));
             toolbar.setTitle(getIntent().getStringExtra("titles"));
+            toolbar.setTitleTextColor(getResources().getColor(R.color.colorDisplayText));
         }
         if (getIntent().getStringExtra("summary") != null)
         {

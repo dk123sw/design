@@ -7,21 +7,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="@color/Theme"/>
-
-    <!--android:fitsSystemWindows="true"-->
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_scrollFlags="enterAlways"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:title=" "
         >
+        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
         <TextView
             android:id="@+id/tv_title"
             android:textSize="17sp"
