@@ -228,18 +228,22 @@ public class MainActivity extends BaseActivity {
                  case R.id.item_download:
                      // 关于我
                      startThActivity(AboutMeActivity.class);
+                     drawerLayout.closeDrawers();
                      break;
                  case R.id.item_favourite:
                      // zxing
                      startThActivity(ZxingActivity.class);
+                     drawerLayout.closeDrawers();
                      break;
                  case R.id.item_history:
                      // calculator
                      startThActivity(Calculator.class);
+                     drawerLayout.closeDrawers();
                      break;
                  case R.id.item_group:
                      // game
                     startThActivity(GameActivity.class);
+                     drawerLayout.closeDrawers();
                      break;
                  case R.id.item_settings:
                      // exit
@@ -247,8 +251,11 @@ public class MainActivity extends BaseActivity {
                          finishAndRemoveTask();
                          break;
                      }
+//                     item.setChecked(true);
                      return true;
              }
+
+//             return true;
              return false;
          }
      });

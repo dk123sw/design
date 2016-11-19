@@ -14,14 +14,18 @@ import com.bumptech.glide.Glide;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import dk.dkln.base.BaseActivity;
 import dk.dkln.R;
+import dk.dkln.base.BaseActivity;
+import dk.dkln.bean.movie.MoiveSeriesListRespnse;
+import dk.dkln.mvp.BaseView;
+import dk.dkln.mvp.presenter.movie.MovieDetailPreImpl;
 import dk.dkln.mvp.view.WebActivity;
+
 /**
- *  TODO 有时间重做这布局~~
- *  @ 废弃用MovieCeshiActivity代替
+ * Created by dk on 2016/11/19.
  */
-public class MovieDetailsActivity extends BaseActivity {
+
+public class MovieCeshiActivity extends BaseActivity implements BaseView {
 
     @BindView(R.id.pictures)
     ImageView pictures;
@@ -42,6 +46,9 @@ public class MovieDetailsActivity extends BaseActivity {
 //    MovieListPreImpl movieListPre;
 //    public View view;
 //    public Context content;
+      MovieDetailPreImpl movieDetailPre;
+      MoiveSeriesListRespnse listRespnse;
+    public  String  dk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +69,8 @@ public class MovieDetailsActivity extends BaseActivity {
     }
 
     private void loadDate() {
+        movieDetailPre = new MovieDetailPreImpl(this);
+
 //        listresponse = (MovieListResponse) getIntent().
 //                getSerializableExtra(BookListResponse.serialVersionName);
 //        movieListPre = new MovieListPreImpl(this);
@@ -81,22 +90,33 @@ public class MovieDetailsActivity extends BaseActivity {
             toolbar.setTitle(getIntent().getStringExtra("titles"));
             toolbar.setTitleTextColor(getResources().getColor(R.color.colorDisplayText));
         }
-        if (getIntent().getStringExtra("subtype") != null)
-            {
-                summary.setText(getIntent().getStringExtra("subtype"));
-            }
+//        if (getIntent().getStringExtra("subtype") != null)
+//        {
+//            summary.setText(getIntent().getStringExtra("subtype"));
+//        }
+        if (getIntent().getStringExtra("id") != null) {
+            dk = getIntent().getStringExtra("id");
+        }
         if (getIntent().getStringExtra("year") != null) {
             year.setText("公映时间:" + getIntent().getStringExtra("year"));
         }
+        movieDetailPre.LoadSeriesPre(dk);
     }
 
     @OnClick(R.id.details)
     public void details(View v){
-                String url = (String)getIntent().getStringExtra("alt") ;
-                Intent intent = WebActivity.newIntent(this
-                        , url ,getIntent().getStringExtra("titles"));
+        String url = (String)getIntent().getStringExtra("alt") ;
+        Intent intent = WebActivity.newIntent(this
+                , url ,getIntent().getStringExtra("titles"));
 //                intent.putExtras(bundle);
-                startActivity(intent);
+        startActivity(intent);
     }
 
+    @Override
+    public void showData(Object result) {
+
+        if (result instanceof MoiveSeriesListRespnse) {
+            summary.setText(((MoiveSeriesListRespnse) result).getSummary());
+        }
+    }
 }

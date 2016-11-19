@@ -12,14 +12,14 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="关于我"
         android:textStyle="bold"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:textSize="40sp"
         android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="鲁东大学电气工程及其自动化专业大四学生,6月份开始自学Android"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_margin="25dp"
         android:layout_gravity="center_horizontal"/>
@@ -27,7 +27,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="邮箱 ：763301256@qq.com"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_margin="5dp"
         android:layout_gravity="center_horizontal"/>

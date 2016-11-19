@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.xys.libzxing.zxing.activity.CaptureActivity;
 import com.xys.libzxing.zxing.encoding.EncodingUtils;
@@ -17,8 +18,8 @@ import com.xys.libzxing.zxing.encoding.EncodingUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import dk.dkln.base.BaseActivity;
 import dk.dkln.R;
+import dk.dkln.base.BaseActivity;
 
 public class ZxingActivity extends BaseActivity {
 
@@ -77,6 +78,9 @@ public class ZxingActivity extends BaseActivity {
         {
             Bitmap bitmap = EncodingUtils.createQRCode(shuru ,1000, 1000,null);
             picture.setImageBitmap(bitmap);
+        }else{
+            Toast.makeText(this , "请输入文本" , Toast.LENGTH_SHORT).show();
         }
     }
+
 }

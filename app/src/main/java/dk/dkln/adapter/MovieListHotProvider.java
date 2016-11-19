@@ -18,7 +18,7 @@ import com.bumptech.glide.Glide;
 
 import dk.dkln.R;
 import dk.dkln.bean.movie.MovieListResponse;
-import dk.dkln.mvp.view.movie.MovieDetailsActivity;
+import dk.dkln.mvp.view.movie.MovieCeshiActivity;
 import me.drakeet.multitype.ItemViewProvider;
 
 /**
@@ -84,7 +84,7 @@ public class MovieListHotProvider extends ItemViewProvider<MovieListResponse ,
                 bundle.putString("alt" , movieListResponse.getAlt());
                 bundle.putString("subtype" , movieListResponse.getSubtype());
                 bundle.putSerializable("pictures" ,movieListResponse.getImages().getLarge());
-                Intent intent = new Intent(holder.itemView.getContext() , MovieDetailsActivity.class);
+                Intent intent = new Intent(holder.itemView.getContext() , MovieCeshiActivity.class);
                 intent.putExtras(bundle);
                 holder.itemView.getContext().startActivity(intent);
             }

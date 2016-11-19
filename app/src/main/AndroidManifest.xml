@@ -31,6 +31,7 @@
         <activity android:name=".mvp.view.game.GameActivity" />
         <activity android:name=".mvp.view.game.Calculator" />
         <activity android:name=".mvp.view.game.ZxingActivity" />
+        <activity android:name=".mvp.view.movie.MovieCeshiActivity"/>
         <activity
             android:name=".AboutMeActivity"
             android:parentActivityName=".MainActivity"
