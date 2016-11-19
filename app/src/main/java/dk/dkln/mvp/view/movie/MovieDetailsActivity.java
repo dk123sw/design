@@ -73,7 +73,7 @@ public class MovieDetailsActivity extends BaseActivity {
                     .into(pictures);
         }
         if (getIntent().getStringArrayExtra("gener") != null) {
-            gener.setText("[" +getIntent().getStringArrayExtra("gener")[0] + "]");
+            gener.setText("类型:" + "[" +getIntent().getStringArrayExtra("gener")[0] + "]");
         }
         if (getIntent().getStringExtra("titles") != null) {
             titles.setText(getIntent().getStringExtra("titles"));
@@ -85,7 +85,7 @@ public class MovieDetailsActivity extends BaseActivity {
                 summary.setText(getIntent().getStringExtra("subtype"));
             }
         if (getIntent().getStringExtra("year") != null) {
-            year.setText(getIntent().getStringExtra("year"));
+            year.setText("公映时间:" + getIntent().getStringExtra("year"));
         }
     }
 

@@ -14,8 +14,8 @@ import com.bumptech.glide.Glide;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import dk.dkln.base.BaseActivity;
 import dk.dkln.R;
+import dk.dkln.base.BaseActivity;
 import dk.dkln.mvp.view.WebActivity;
 
 public class BookDetailsActivity extends BaseActivity {
@@ -73,7 +73,7 @@ public class BookDetailsActivity extends BaseActivity {
             summary.setText(getIntent().getStringExtra("summary"));
         }
         if (getIntent().getStringExtra("year") != null) {
-            year.setText(getIntent().getStringExtra("year"));
+            year.setText("出版时间:" + getIntent().getStringExtra("year"));
         }
     }
 

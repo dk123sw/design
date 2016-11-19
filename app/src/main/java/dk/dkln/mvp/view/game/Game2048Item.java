@@ -49,7 +49,7 @@ public class Game2048Item extends View
 	{
 		mNumber = number;
 		mNumberVal = mNumber + "";
-		mPaint.setTextSize(30.0f);
+		mPaint.setTextSize(60.0f);
 		mBound = new Rect();
 		mPaint.getTextBounds(mNumberVal, 0, mNumberVal.length(), mBound);
 		invalidate();
