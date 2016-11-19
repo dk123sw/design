@@ -1,15 +1,12 @@
-package dk.dkln.mvp.presenter.book.impl;
+package dk.dkln.mvp.presenter.book;
 
 
 import dk.dkln.bean.movie.BaseResponse;
 import dk.dkln.mvp.ApiCompleteListener;
 import dk.dkln.mvp.BaseView;
 import dk.dkln.mvp.LayoutView;
+import dk.dkln.mvp.model.book.BookListModelImpl;
 import dk.dkln.mvp.model.book.IBookListModel;
-import dk.dkln.mvp.model.book.impl.BookListModelImpl;
-import dk.dkln.mvp.presenter.book.IBookListPresenter;
-
-
 
 public class BookListPreImpl implements IBookListPresenter, ApiCompleteListener {
     private LayoutView iBookDetailsView;

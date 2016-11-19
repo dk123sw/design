@@ -31,7 +31,14 @@
         <activity android:name=".mvp.view.game.GameActivity" />
         <activity android:name=".mvp.view.game.Calculator" />
         <activity android:name=".mvp.view.game.ZxingActivity" />
-        <activity android:name=".AboutMeActivity"></activity>
+        <activity
+            android:name=".AboutMeActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Translucent">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

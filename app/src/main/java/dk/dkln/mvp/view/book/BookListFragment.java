@@ -2,7 +2,6 @@ package dk.dkln.mvp.view.book;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,14 +12,14 @@ import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import dk.dkln.base.BaseFragment;
-import dk.dkln.base.MultiSwipeRefreshLayout;
 import dk.dkln.R;
 import dk.dkln.adapter.BookListsProvider;
+import dk.dkln.base.BaseFragment;
+import dk.dkln.base.MultiSwipeRefreshLayout;
 import dk.dkln.bean.book.BookInfoResponse;
 import dk.dkln.bean.book.BookListResponse;
 import dk.dkln.mvp.LayoutView;
-import dk.dkln.mvp.presenter.book.impl.BookListPreImpl;
+import dk.dkln.mvp.presenter.book.BookListPreImpl;
 import dk.dkln.utils.BookApiUtils;
 import me.drakeet.multitype.MultiTypeAdapter;
 
@@ -30,7 +29,7 @@ import me.drakeet.multitype.MultiTypeAdapter;
  */
 
 public class BookListFragment extends BaseFragment implements LayoutView,
-        SwipeRefreshLayout.OnRefreshListener {
+        MultiSwipeRefreshLayout.OnRefreshListener {
 
 
     @BindView(R.id.recyclerview)

@@ -245,6 +245,7 @@ public class MainActivity extends BaseActivity {
                      // exit
                      if (Build.VERSION.SDK_INT >= 21){
                          finishAndRemoveTask();
+                         break;
                      }
                      return true;
              }

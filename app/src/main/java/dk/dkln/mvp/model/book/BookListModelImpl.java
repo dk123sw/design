@@ -1,4 +1,4 @@
-package dk.dkln.mvp.model.book.impl;
+package dk.dkln.mvp.model.book;
 
 import com.google.gson.Gson;
 
@@ -9,7 +9,6 @@ import dk.dkln.bean.movie.BaseResponse;
 import dk.dkln.mvp.ApiCompleteListener;
 import dk.dkln.mvp.http.DouBanApi;
 import dk.dkln.mvp.http.ServiceFactory;
-import dk.dkln.mvp.model.book.IBookListModel;
 import retrofit2.Response;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;

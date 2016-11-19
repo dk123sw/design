@@ -80,6 +80,7 @@ public class MovieListHotProvider extends ItemViewProvider<MovieListResponse ,
                 bundle.putString("titles" ,movieListResponse.getTitle());
                 bundle.putString("year" , movieListResponse.getYear());
                 bundle.putStringArray("gener" , gener);
+                bundle.putString("id" , movieListResponse.getId());
                 bundle.putString("alt" , movieListResponse.getAlt());
                 bundle.putString("subtype" , movieListResponse.getSubtype());
                 bundle.putSerializable("pictures" ,movieListResponse.getImages().getLarge());

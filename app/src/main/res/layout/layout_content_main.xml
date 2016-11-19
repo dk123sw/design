@@ -20,11 +20,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-       <!-- <View
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:fitsSystemWindows="true"
-            android:background="@color/white"/>-->
+        <!-- <View
+             android:layout_width="match_parent"
+             android:layout_height="25dp"
+             android:fitsSystemWindows="true"
+             android:background="@color/white"/>-->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -51,6 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="41dp" />
 
+
                 <RadioButton
                     android:layout_margin="8dp"
                     android:maxLines="1"
@@ -73,8 +74,8 @@
                     android:layout_height="wrap_content" />
 
             </RadioGroup>
-            </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout
->
+        >
 </android.support.design.widget.CoordinatorLayout>

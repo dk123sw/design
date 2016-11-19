@@ -4,6 +4,7 @@
 
     <color name="Theme">#FB5B81</color>
     <color name="blue">#FF5793EE</color>
+    <color name="scrim">#99323232</color>
 
 //MultiSwipeRefreshLayout使用
     <color name="refresh_progress_1">#e91e63</color>
